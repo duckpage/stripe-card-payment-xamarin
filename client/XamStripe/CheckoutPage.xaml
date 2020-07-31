@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviours="clr-namespace:XamStripe.Behaviours"
+    x:Class="XamStripe.CheckoutPage"
+    Title="Stripe Payment">
+
+    <StackLayout>
+
+        <Frame Margin="40" Padding="20, 40">
+
+            <StackLayout>
+
+                <StackLayout x:Name="CardLayout">
+
+                    <Entry x:Name="CardNumber" HorizontalOptions="FillAndExpand" Placeholder="4000 0000 0000 3220" Keyboard="Numeric" MaxLength="19">
+                        <Entry.Behaviors>
+                            <behaviours:EntryBehaviour Mask="####-####-####-####" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Entry x:Name="MonthYear" HorizontalOptions="FillAndExpand" Placeholder="MM/YY" MaxLength="5" Keyboard="Numeric">
+                            <Entry.Behaviors>
+                                <behaviours:EntryBehaviour Mask="##/##" />
+                            </Entry.Behaviors>
+                         </Entry>
+
+                        <Entry x:Name="CVC" HorizontalOptions="FillAndExpand" Placeholder="CVC" MaxLength="3" Keyboard="Numeric" />
+
+                    </StackLayout>
+
+                    <Button x:Name="PayButton" HorizontalOptions="FillAndExpand" Text="Pay now" BackgroundColor="#000dff" TextColor="White" FontAttributes="Bold" />
+
+                </StackLayout>
+
+                <ActivityIndicator x:Name="Loader" WidthRequest="50" HeightRequest="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="True" Opacity="0" IsVisible="False" />
+
+            </StackLayout>
+
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
